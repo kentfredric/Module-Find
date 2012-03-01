@@ -7,7 +7,7 @@ use warnings;
 use File::Spec;
 use File::Find;
 
-our $VERSION = '0.10';
+our $VERSION = '0.10_01';
 
 our $basedir = undef;
 our @results = ();
@@ -179,7 +179,7 @@ sub _find(*) {
     my $dir = File::Spec->catdir(split(/::/, $category));
 
     my @dirs;
-    if (defined @Module::Find::ModuleDirs) {
+    if (@Module::Find::ModuleDirs) {
         @dirs = map { File::Spec->catdir($_, $dir) }
             @Module::Find::ModuleDirs;
     } else {
